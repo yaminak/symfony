@@ -14,6 +14,19 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    <h1>Bienvenue à la bibliothèque</h1>
+        {% block body %}
+            <p>Ceci est le contenu de la balise <code>block body</code> du fichier
+                <mark>base.html.twig</mark>
+            </p>
+            <p>Le nombre est {{ nombre }}
+            </p>
+            <p> Bonjour M. {{ nom }}
+            </p>
+        {% endblock %}
     </body>
+
+    <footer>
+        <p>Ceci est le footer de la page</p>
+    </footer>
 </html>
