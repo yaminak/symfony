@@ -2,6 +2,6 @@
     {% extends "base.html.twig" %}
     {% block body %}
     <h2>le resultat est </h2>
-    <p> {{chiffre1}} + {{chiffre2}} = {{chiffre1 + chiffre2}}
-        </p>
+    <p> {{chiffre1}} + {{chiffre2}} = {{chiffre1 + chiffre2}}</p>
+    <p>{{chiffre1 ~ " + " ~ chiffre2 ~ " = " ~ (chiffre1 + chiffre2)}}</p>
     {% endblock %}

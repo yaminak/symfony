@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<p>La <sup>2</sup>ième valeur du tableau : {{ tableau[1]}} </p>
+<p> Toutes les valeurs du tableau : </p>
+
+<ul>
+    {% for i in 0..4 %}
+<li>{{i ~ " : " ~  tableau[i]}}</li>
+    {% endfor %}
+</ul>
+
+<p> Pour connaitre la taille d'un tableau, on utilise la fonction twig <code>length</code> 
+    c'est un type de filtre :  une fonction qui s'utilise avec une syntaxe particulière
+    <code>valeur|filtre</code></p>
+<ul>
+    {% for i in 0..tableau|length - 1 %}
+<li>{{i ~ " : " ~  tableau[i]}}</li>
+    {% endfor %}
+</ul>
+</table>
+
+<p>pour parcourir un tableau on peut faire une boucle FOREACH</p>
+<table border="1">
+{% for valeur in tableau %}
+<tr>
+    <td>{{valeur}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<P>Si on veut aussi récupérer les indices : </P>
+
+<table border="1">
+{% for indice, valeur in tableau %}
+    <tr>
+        <td>{{indice}}</td>
+        <td>{{valeur}}</td>
+    </tr>
+{% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<p> Valeurs du tableau associatif</p>
+    <table border="1">
+    <tr>
+    <th>Nom</th>
+        <td>{{var["nom"]}}</td>
+        {# <td>{{var.nom}}</td> #}
+    </tr>
+    <tr>
+    <th>Prénom</th>
+        <td>{{var["prenom"]}}</td>
+        {# <td>{{var.prenom}}</td> #}
+    </tr>
+  
+{% endblock %}
