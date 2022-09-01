@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+<a class="navbar-brand" href=" {{ path('app_home') }}">Eboutik</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto my-2 my-lg-0">
+  {% if not app.user %}
+  <li class="nav-item">
+<a class="nav-link" href="{{ path('app_login') }}"><i class="fa fa-sign-in-alt"></i></a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{ path('app_register') }}"><i class="fa fa-user-plus"></i></a>
+</li>
+{% else %}
+<li class="nav-item">
+<a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-sign-out-alt"></i></a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href=""> 
+{{app.user.pseudo}}
+</a>
+</li>
+{% endif %}
+{% if is_granted("ROLE_ADMIN") %}
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Produits
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href=" {{ path('app_admin_produit_index') }}">Liste</a>
+  <a class="dropdown-item" href=" {{ path('app_admin_produit_new') }}">Ajouter</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Clients
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href=" {{ path('app_admin_client_index') }}">Liste</a>
+<a class="dropdown-item" href=" {{ path('app_admin_client_new') }}">Ajouter</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Commandes
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+  <a class="dropdown-item" href=" {{ path('app_admin_commande_index') }}">Liste</a>
+  <a class="dropdown-item" href=" {{ path('app_admin_commande_new') }}">Ajouter</a>
+</div>
+</li>
+{% endif %}
+  </ul>
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+</div>
+</div>
+</nav>

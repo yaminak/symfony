@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{# {% block title %}Nouveau Client{% endblock %} #}
+
+{% block h1 %} Ajouter un nouveau client {% endblock %}
+
+{% block body %}
+
+    {{ include('admin/client/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_client_index') }}" class="btn btn-secondary">
+    <i class="fa fa-reply">
+Retour à liste</a>
+{% endblock %}

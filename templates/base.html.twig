@@ -23,7 +23,10 @@
 
     <body>
         <div class="container">
-    <h1>Bienvenue à la bibliothèque</h1>
+        {% block nav %}
+        {{include("nav.html.twig") }}
+        {% endblock %}
+    <h1>{% block h1 %} Bienvenue à la bibliothèque {% endblock %}</h1>
         {% block body %}
             <p>Ceci est le contenu de la balise <code>block body</code> du fichier
                 <mark>base.html.twig</mark>
