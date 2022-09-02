@@ -13,8 +13,8 @@
             <p class="card-text">Catégorie : {{ produit.categorie }}</p>
             <p class="card-text">Prix : {{ produit.prix }} €</p>
             <p class="card-text">Stock : {{ produit.stock }}</p>
-            <a href="" class="btn btn-primary">Voir</a>
-            <form method="get" action="">
+            <a href="" class="btn btn-info">Voir</a>
+            <form method="get" action="{{ path('app_panier_ajouter', {id: produit.id}) }}">
                 <input name="qte" type="number">
                 <button class="btn btn-info">
                     <i class="fa fa-cart-arrow-down"></i>

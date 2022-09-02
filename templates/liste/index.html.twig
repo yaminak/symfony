@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+{% block h1 %}Liste des produits{% endblock %}
+
+{% block body %}
+<div class="card-columns">
+{% for liste in listes %} 
+    <div class="card" style="width: 18rem;">
+        <img img class="card-img-top" src="{{ asset("images/" ~ liste.photo ) }}" alt="{{ liste.titre }}">
+        <div class="card-body">
+            <h5 class="card-title text-primary">Nom : {{ liste.titre }}</h5>
+            <p class="card-text text-info">Référence : {{ liste.reference }}</p>
+            <p class="card-text text-success">Catégorie : {{ liste.categorie }}</p>
+            <p class="card-text text-warning">Prix : {{ liste.prix }} €</p>
+            <p class="card-text text-danger">Stock : {{ liste.stock }}</p>
+        </div>
+    </div>
+{% else %}
+        Aucun produit enregistré
+{% endfor %}
+</div>
+{% endblock %}
+
+

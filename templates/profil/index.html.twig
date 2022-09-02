@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Profil Client{% endblock %}
+{% block h1 %}Profil client{% endblock %}
+
+{% block body %}
+<div class="card-deck">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+<ul class="liste-group">
+      <strong>Pseudo : </strong> {{ app.user.pseudo }}
+        <br>
+        <br>
+      <strong>Identité : </strong> {{ app.user.nom ~ " " ~ app.user.prenom }}
+        <br>
+        <br>
+      <strong>Adresse : </strong> {{ app.user.adresse ~ " " ~ app.user.codePostal  ~ " " ~ app.user.ville  }}
+        <br>
+        <br>
+      <strong>E-mail : </strong> {{ app.user.email }}
+        <br>
+        <br>
+      <strong>Type : </strong> {% for role in app.user.roles %}
+        {% if role == "ROLE_ADMIN" %}
+            Adminstrateur
+        {% elseif role == "ROLE_CLIENT" %}
+            Client
+        {% elseif role == "ROLE_MODO" %}
+            Modérateur
+    {% endif %}
+       {% endfor %} 
+        <br>
+    </ul>
+      </div>
+    </div>
+</div>
+<br>
+<li class="list-group-item">
+<strong>Mes commandes : </strong>
+    <br>
+    <br>
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Date</th>
+            <th>Montant</th>
+            <th>Etat</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cmd in app.user.commandes %}
+        <tr>
+        <td> {{ cmd.dateEnregistrement|date("d/m/y") }}</td>
+        <td> {{ cmd.montant }} € </td>
+        <td> {{ cmd.etat|upper}}</td>
+        </tr>
+        {% else %}
+            <tr>
+            <td colspan="3">Aucune commande</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</li>
+
+{% endblock %}
