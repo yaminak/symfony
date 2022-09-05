@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{# {% block title %}Produit{% endblock %} #}
-{% block h1 %}Produit{% endblock %}
+{% block title %}Produit{% endblock %}
+{% block h1 %}Détail du produit{% endblock %}
 
 {% block body %}
 
@@ -29,7 +29,8 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ produit.photo }}</td>
+                <td>
+                <img src="{{ (image_path ~ produit.photo ) }}" alt="{{ produit.titre }}"></td>
             </tr>
             <tr>
                 <th>Prix</th>
@@ -39,6 +40,17 @@
                 <th>Stock</th>
                 <td>{{ produit.stock }}</td>
             </tr>
+            <tr>
+            <th>Popularité</th>
+            <td>
+            <p>Le produit a été commandé {{ produit.details|length }} fois </p>
+                {% set nb = 0 %}    
+                {% for d in produit.details %}
+                {% set nb = nb + d.quantite %}     
+                {% endfor %}        
+            <p>Le nombre de produits commandés : {{nb}}</p>
+            </td>
+        </tr>
         </tbody>
     </table>
 

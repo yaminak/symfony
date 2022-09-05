@@ -24,8 +24,11 @@
     <body>
         <div class="container">
         {% block nav %}
-        {{include("nav.html.twig") }}
+        {{ include("nav.html.twig") }}
         {% endblock %}
+        
+        {{ include("messages.html.twig") }}
+
     <h1>{% block h1 %} Bienvenue à la bibliothèque {% endblock %}</h1>
         {% block body %}
             <p>Ceci est le contenu de la balise <code>block body</code> du fichier
